@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>空間シミュレート</title>
+</head>
+<body>
+  <form method="POST">
+    <select name="instrument">
+        {% for instrument in instruments %}
+            <option value="{{ instrument }}">{{ instrument }}</option>
+        {% endfor %}
+    </select>
+    <input type="text" name="x" placeholder="X">
+    <input type="text" name="y" placeholder="Y">
+    <button type="submit">set</button>
+  </form>
+  <figure>
+      <figcaption>Arrangement of Source and Microphone:</figcaption>
+      <img src="{{ url_for('static', filename='arrangement.png') }}" width="600" height="400">
+  </figure>
+  <figure>
+      <figcaption>Recorded signal:</figcaption>
+      <audio controls src="{{ url_for('static', filename='spatial-mix.wav') }}"></audio>
+  </figure>
+</body>
+</html>
